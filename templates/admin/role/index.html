@@ -1,0 +1,49 @@
+{{ define "admin/role/index.html"}}
+{{ template "admin/public/page_header.html" .}}
+
+<!--
+    列表展示
+-->
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <thead>
+            <tr class="th">
+                <th>职能名称</th>
+                <th>职能描述</th>
+                <th>职能状态</th>
+                <th class="text-center">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 循环遍历职能 -->
+            {{range $key,$value:=.roleList}}
+            <tr>
+                <!-- 变量名和 /models/role.go 统一 -->
+                <td>{{$value.Title}}</td>
+                <td>{{$value.Description}}</td>
+                <!-- 异步修改状态 -->
+                <td align="center">
+                    {{if eq $value.Status 1}}
+                    <img class="chStatus" data-id="{{$value.Id}}" data-table="role" data-field="status"
+                        src="/static/admin/images/yes.gif" />
+                    {{else}}
+                    <img class="chStatus" data-id="{{$value.Id}}" data-table="role" data-field="status"
+                        src="/static/admin/images/no.gif" />
+                    {{end}}
+                </td>
+
+                <td class="text-center">
+                    <a href="/admin/role/auth?id={{$value.Id}}">授权</a>
+                    <a href="/admin/role/edit?id={{$value.Id}}">修改</a>
+                    <a class="delete" href="/admin/role/delete?id={{$value.Id}}">删除</a>
+                </td>
+            </tr>
+            {{end}}
+        </tbody>
+    </table>
+</div>
+</body>
+
+</html>
+
+{{end}}
