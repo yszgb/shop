@@ -1,9 +1,10 @@
 package routers
 
 import (
-	"github.com/gin-gonic/gin"
 	"shop/controllers/admin"
 	"shop/middlewares"
+
+	"github.com/gin-gonic/gin"
 )
 
 func AdminRoutersInit(r *gin.Engine) {
@@ -49,5 +50,12 @@ func AdminRoutersInit(r *gin.Engine) {
 		adminRouters.GET("/access/edit", admin.AccessController{}.Edit)
 		adminRouters.POST("/access/doEdit", admin.AccessController{}.DoEdit)
 		adminRouters.GET("/access/delete", admin.AccessController{}.Delete)
+
+		adminRouters.GET("/goodsCate", admin.GoodsCateController{}.Index)
+		adminRouters.GET("/goodsCate/add", admin.GoodsCateController{}.Add)
+		adminRouters.POST("/goodsCate/doAdd", admin.GoodsCateController{}.DoAdd)
+		adminRouters.GET("/goodsCate/edit", admin.GoodsCateController{}.Edit)
+		adminRouters.POST("/goodsCate/doEdit", admin.GoodsCateController{}.DoEdit)
+		adminRouters.GET("/goodsCate/delete", admin.GoodsCateController{}.Delete)
 	}
 }
