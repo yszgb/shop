@@ -4,6 +4,12 @@ ul{
     padding: 0px;
 }
 
+
+
+/* 侧边栏 */
+
+/* 标题样式 */
+/* 改为更柔和的色调，添加圆角、渐变 */
 .aside h4{
 	margin-top: 0px;
 	font-size: 15px;
@@ -20,39 +26,78 @@ ul{
     border-bottom: 2px solid #3a82bf;
 }
 
-.aside .list-group-item:first-child{
+/* 标题悬停效果 */
+.aside h4:hover {
+    background-color: #0056b3; /* 悬停时更深的蓝色 */
+}
 
-	border-top-left-radius: 0px;
-    border-top-right-radius: 0px;
+/* 子菜单项的首尾样式 */
+/* 改为 10px 可以增加圆角 */
+.aside .list-group-item:first-child{
+    border-top-left-radius: 0px; 
+    border-top-right-radius: 0px; 
 }
 
 .aside .list-group-item:last-child{
-	
-	border-bottom-right-radius: 0px;
-    border-bottom-left-radius: 0px;
+    border-bottom-left-radius: 0px; 
+    border-bottom-right-radius: 0px; 
+}
+
+/* 子菜单 */
+.aside .list-group-item {
+    padding: 8px 15px; /* 内边距 */
+    margin: 0; /* 去掉间距 */
+    background-color: #fff; /* 子菜单背景 */
+    border: none; /* 去掉边框 */
+    border-bottom: 1px solid #ddd; /* 下边框用于分隔 */
+    font-size: 13px; /* 字体大小 */
+}
+
+.aside .list-group-item a {
+    display: block;
+    color: #555; /* 默认字体颜色 */
+    text-decoration: none; /* 去掉下划线 */
+    text-indent: 20px; /* 缩进 */
+    transition: background-color 0.3s ease, color 0.3s ease; /* 过渡效果 */
+}
+
+.aside .list-group-item a:hover {
+    background-color: #f1f1f1; /* 悬停背景 */
+    color: #007bff; /* 悬停字体颜色 */
+}
+
+/* 侧边菜单整体样式 */
+.aside {
+    width: 200px; /* 侧边栏宽度 */
+    background-color: #f8f9fa; /* 统一浅灰色背景 */
+    border: 1px solid #ddd; /* 边框 */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* 阴影效果 */
 }
 
 
 
-.aside .list-group-item a{
-	
-	display: inline-block;
-	width: 100%;
-	text-indent: 10px;
-	color: #555
-}
-
-
+/* 顶部导航栏 */
 
 .navbar-header{   
     text-align: center;
 }
+
 .navbar-inverse .navbar-nav>li>a{
-    color:#f9f9f9;
+    color:#333333;
+    font-weight: bold; /* 加粗文字 */
 }
+
 .navbar-inverse{
-    background:#46473F;
+    background:#FFFFFF;
+    border: none; /* 去掉边框 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加轻微阴影 */
 }
+
+/* 鼠标悬停效果 */
+.navbar-inverse .navbar-nav>li>a:hover {
+    color: #ff7E00; /* 小米主题橙色 */
+}
+
 
 
 table .th{
@@ -69,15 +114,67 @@ input[type=file]{
 
 }
 
-
 .col-sm-2,.col-sm-10{
 	padding-left: 0px;
 }
 
-
 .navbar{
 	border-radius: 0px;
 }
+
 .logo{
 	height:48px;
+}
+
+.fr{
+    float: right;
+}
+
+.clear::after{
+
+    clear: both;
+    content: '';
+
+    height: 0px;
+    display: block;
+
+}
+
+/*商品详情页面布局*/
+.tab-content{
+    position: relative;
+    top: -12px;
+    padding: 20px;
+    background: #fff;
+}
+
+.input-form li{
+    padding: 6px 0px;
+}
+
+.input-form li input[type="text"],.input-form li input[type="password"]{
+    width: 300px;
+}
+
+.nav-tabs{
+    background: #eee;
+    padding-left: 10px;
+}
+
+.goods-content{
+    border: 1px solid #eee;
+}
+
+.input-form li span{
+    display: inline-block;
+    min-width: 90px;
+    text-align: right;
+}
+
+/* 解决webuploader按钮失效的方法 */
+#photoUploader div:nth-child(2){width:100%!important;height:100%!important;}   
+
+#photoUploader{
+    margin: 20px auto;
+    width: 200px;
 }

@@ -1,5 +1,8 @@
 $(function () {
 	baseApp.init();
+	$(window).resize(function(){
+		baseApp.resizeIframe();
+	})
 })
 
 var baseApp = {
@@ -15,6 +18,7 @@ var baseApp = {
 	// 定义 initAside 的函数，给页面上类名为 aside 的元素内所有 <h4> 标签绑定一个点击事件。
 	// 当 <h4> 标签被点击时，各自的同级 <ul> 元素会执行一个滑动切换（slideToggle）效果。
 	initAside: function () {
+		$('.aside>li:nth-child(1) ul,.aside>li:nth-child(2) ul').hide()
 		$('.aside h4').click(function () {
 			$(this).siblings('ul').slideToggle();
 		})

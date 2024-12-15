@@ -43,6 +43,11 @@ func GetUnix() int64 {
 	return time.Now().Unix()
 }
 
+// 获取纳秒
+func GetUnixNano() int64 {
+	return time.Now().UnixNano()
+}
+
 // 获取时间
 func GetDate() string {
 	template := "2006-01-02 15:04:05"
@@ -104,7 +109,7 @@ func UploadImg(c *gin.Context, picName string) (string, error) {
 	}
 
 	// 4. 生成文件名称和文件保存的目录   111111111111.jpeg
-	fileName := strconv.FormatInt(GetUnix(), 10) + extName
+	fileName := strconv.FormatInt(GetUnixNano(), 10) + extName
 	fmt.Println("保存图片到：",fileName)
 
 	// 5. 执行上传
